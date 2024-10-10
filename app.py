@@ -18,7 +18,8 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 def get_cines_data():
-    url = "https://www.sensacine.com/cines/ciudades-72368/"
+    # url = "https://www.sensacine.com/cines/ciudades-72368/"
+    url = "https://www.sensacine.com/cines/ciudades-54166/"
 
     # Gets the HTML content of the page
     response = requests.get(url)   
@@ -194,7 +195,7 @@ def get_cines_pelicula():
     if not pelicula_titulo:
         return jsonify({"error": "Parámetro 'pelicula' es requerido"}), 400
     
-    cines_data = get_cine_data()
+    cines_data = get_cines_data()
     if cines_data is None:
         return jsonify({"error": "Error en la solicitud HTTP o no se encontraron cines"}), 500
     
