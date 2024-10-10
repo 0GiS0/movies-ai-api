@@ -44,14 +44,3 @@ resource "azurerm_linux_web_app" "web" {
     }
   }
 }
-
-resource "azurerm_linux_web_app_slot" "staging_slot" {
-  name           = "staging"
-  app_service_id = azurerm_linux_web_app.web.id
-
-  site_config {
-    application_stack {
-      python_version = "3.9"
-    }
-  }
-}
